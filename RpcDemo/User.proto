@@ -1,0 +1,22 @@
+syntax = "proto3";  // 版本声明
+package grpcinclass; // 包名，包名可以避免对message类型之间的名字冲突，同名的message可以通过package进行区分
+option go_package = "/proto"; // 生成的go文件的package名（基于一定规则生成）
+
+
+message LoginResp{
+  bool OK = 1;
+}
+
+message LoginReq{
+  string UserName = 1;
+  string PassWord = 2;
+  string ques1 = 3;
+  string ques2 = 4;
+  string ans1 = 5;
+  string ans2 = 6;
+}
+
+service user{
+  rpc Login(LoginReq) returns (LoginResp){}
+  rpc newuser(LoginReq) returns (LoginResp){}
+}
